@@ -1,0 +1,66 @@
+
+version: 2
+
+models:
+  - name: stg_hubspot_deals
+    description: >
+      Staging model for HubSpot deals.
+      Extracts typed deal fields from the RAW JSON payload
+      while preserving the complete original source payload.
+
+    columns:
+      - name: id
+        description: Unique HubSpot deal record identifier.
+        tests:
+          - not_null
+          - unique
+
+      - name: archived
+        description: Indicates whether the HubSpot deal is archived.
+        tests:
+          - not_null
+
+      - name: created_at
+        description: Timestamp when the deal record was created in HubSpot.
+        tests:
+          - not_null
+
+      - name: updated_at
+        description: Timestamp when the deal record was last updated in HubSpot.
+        tests:
+          - not_null
+
+      - name: url
+        description: URL of the deal record in HubSpot.
+        tests:
+          - not_null
+
+      - name: amount
+        description: Deal amount converted to NUMBER(18,2).
+        tests:
+          - not_null
+
+      - name: close_date
+        description: Deal close date converted to TIMESTAMP_TZ.
+        tests:
+          - not_null
+
+      - name: deal_name
+        description: Name of the deal.
+        tests:
+          - not_null
+
+      - name: deal_stage_id
+        description: HubSpot deal stage identifier.
+        tests:
+          - not_null
+
+      - name: pipeline_id
+        description: HubSpot pipeline identifier.
+        tests:
+          - not_null
+
+      - name: source_payload
+        description: Complete original JSON record from the RAW source.
+        tests:
+          - not_null

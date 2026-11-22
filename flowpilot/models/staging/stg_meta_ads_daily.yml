@@ -1,0 +1,56 @@
+
+version: 2
+
+models:
+  - name: stg_meta_ads_daily
+    description: >
+      Staging model for daily Meta Ads data.
+      Standardizes dates, identifiers, placements,
+      currency and advertising metrics while preserving
+      all source records.
+
+    columns:
+      - name: ad_date
+        description: Date of the advertising performance record.
+        data_tests:
+          - not_null
+
+      - name: campaign_id
+        description: Meta advertising campaign identifier.
+        data_tests:
+          - not_null
+
+      - name: ad_id
+        description: Meta advertising ad identifier.
+        data_tests:
+          - not_null
+
+      - name: placement
+        description: Normalized advertising placement.
+        data_tests:
+          - not_null
+
+      - name: impressions
+        description: Number of ad impressions.
+        data_tests:
+          - not_null
+
+      - name: clicks
+        description: Number of ad clicks.
+        data_tests:
+          - not_null
+
+      - name: spend_eur
+        description: Advertising spend in EUR.
+        data_tests:
+          - not_null
+
+      - name: platform_conversions
+        description: Conversions reported by the advertising platform.
+        data_tests:
+          - not_null
+
+      - name: currency
+        description: Currency associated with advertising spend.
+        data_tests:
+          - not_null

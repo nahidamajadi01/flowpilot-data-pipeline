@@ -1,0 +1,44 @@
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+
+# Python environments
+.venv/
+venv/
+flowpilot/venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# dbt generated files
+flowpilot/target/
+flowpilot/dbt_packages/
+flowpilot/logs/
+flowpilot/dev.duckdb
+flowpilot/dev.duckdb.*
+
+# Airflow generated files
+airflow/logs/
+airflow/config/
+airflow/.env
+
+# Generated datasets
+*.csv
+*.csv.gz
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# Generated project data
+data/raw/
+data/synthetic/
+logs/

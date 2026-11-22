@@ -1,0 +1,50 @@
+
+version: 2
+
+sources:
+  - name: flowpilot_raw
+    description: "Raw source tables for the FlowPilot data pipeline."
+    database: FLOWPILOT_DB
+    schema: RAW
+
+    tables:
+
+      # Google Analytics 4
+      - name: ga4_events
+        identifier: GA4_EVENTS
+        description: "Raw GA4 event records."
+        columns:
+          - name: EVENT_ID
+            data_tests:
+              - unique
+              - not_null
+
+      # HubSpot Companies
+      - name: hubspot_companies
+        identifier: HUBSPOT_COMPANIES
+        description: "Raw HubSpot company records."
+
+      # HubSpot Contacts
+      - name: hubspot_contacts
+        identifier: HUBSPOT_CONTACTS
+        description: "Raw HubSpot contact records."
+
+      # HubSpot Deals
+      - name: hubspot_deals
+        identifier: HUBSPOT_DEALS
+        description: "Raw HubSpot deal records."
+
+      # Meta Ads
+      - name: meta_ads_daily
+        identifier: META_ADS_DAILY
+        description: "Raw daily Meta advertising performance records."
+
+      # Product Events
+      - name: product_events
+        identifier: PRODUCT_EVENTS
+        description: "Raw SaaS product event records."
+
+      # Subscriptions
+      - name: subscriptions
+        identifier: SUBSCRIPTIONS
+        description: "Raw subscription records."

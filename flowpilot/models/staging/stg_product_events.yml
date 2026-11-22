@@ -1,0 +1,62 @@
+
+version: 2
+
+models:
+  - name: stg_product_events
+    description: >
+      Staging model for SaaS product events.
+      Standardizes identifiers, event attributes,
+      timestamps and duration values while preserving
+      all 7 million source records.
+
+    columns:
+      - name: event_id
+        description: Unique product event identifier.
+        data_tests:
+          - not_null
+          - unique
+
+      - name: user_id
+        description: User associated with the event.
+        data_tests:
+          - not_null
+
+      - name: account_id
+        description: Account associated with the event.
+        data_tests:
+          - not_null
+
+      - name: session_id
+        description: Session associated with the event.
+        data_tests:
+          - not_null
+
+      - name: event_name
+        description: Name of the product event.
+        data_tests:
+          - not_null
+
+      - name: feature_area
+        description: Product feature area associated with the event.
+        data_tests:
+          - not_null
+
+      - name: platform
+        description: Platform on which the event occurred.
+        data_tests:
+          - not_null
+
+      - name: plan_at_event
+        description: Subscription plan at the time of the event.
+        data_tests:
+          - not_null
+
+      - name: event_timestamp
+        description: Timestamp when the product event occurred.
+        data_tests:
+          - not_null
+
+      - name: duration_ms
+        description: >
+          Event duration in milliseconds.
+          NULL is retained when the source duration is missing.

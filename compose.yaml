@@ -1,0 +1,15 @@
+
+services:
+  dbt:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /workspace/flowpilot
+    volumes:
+      - ./flowpilot:/workspace/flowpilot
+      - ${HOME}/.dbt:/root/.dbt:ro
+    environment:
+      DBT_PROFILES_DIR: /root/.dbt
+      SNOWFLAKE_TOKEN: ${SNOWFLAKE_TOKEN}
+
+  
